@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
-from router import blog_get
-from router import blog_post
+from routing.router import blog_get
+from routing.router import blog_post
 
 app = FastAPI()
 app.include_router(blog_get.router)
