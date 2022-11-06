@@ -3,12 +3,20 @@ from pydantic import BaseModel
 from typing import Optional,List
 router=APIRouter(prefix='/blog',tags=['blog'])
 
+
+class Image(BaseModel):
+	URL:str
+	alias:str
+
 #it's a model for store articles in database
 class BlogModel(BaseModel):
 	title:str
 	content:str
 	nb_comments:int
 	publisher:Optional[bool]
+	tags:List[str]
+	image:Image=None
+
 
 
 @router.post('/new/{id}')
